@@ -5,8 +5,9 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { email, password } = req.body;
 
+    let client;
     try {
-      const client = await pool.connect();
+      client = await pool.connect();
       const result = await client.query(
         'SELECT * FROM users WHERE email = $1',
         [email]
@@ -22,19 +23,17 @@ export default async function handler(req, res) {
           res.status(200).json({ message: 'Login bem-sucedido', user });
         } else {
           res.status(401).json({ error: 'Credenciais inválidas' });
-          alert('Email ou senha inválidos');
         }
       } else {
-        alert('Email ou senha inválidos');
         res.status(401).json({ error: 'Credenciais inválidas' });
       }
-
-      client.release();
     } catch (error) {
       console.error('Erro ao autenticar usuário:', error);
       res.status(500).json({ error: 'Erro interno do servidor' });
-      alert('Erro interno do servidor');
-
+    } finally {
+      if (client) {
+        client.release();
+      }
     }
   } else {
     res.status(405).json({ error: 'Método não permitido' });
