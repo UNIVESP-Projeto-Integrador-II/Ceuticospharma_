@@ -38,7 +38,7 @@ export default function SignIn() {
 
 
         // Redirecionar para a página após o login bem-sucedido
-        window.location.href = '/';
+        window.location.href = '/dashboard';
       } else {
         alert("Email ou senha inválidos!");
         console.error('Credenciais inválidas');

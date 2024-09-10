@@ -1,27 +1,21 @@
-// api/products.js
 import { NextApiRequest, NextApiResponse } from 'next';
-import pool from '../../../utils/db';
+import pool from '../../../utils/db'; // Certifique-se de que o caminho está correto
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { page = 1, pageSize = 9 } = req.query;
-  const offset = (page - 1) * pageSize;
+  if (req.method === 'GET') {
+    try {
+      // Consulta SQL para obter todos os produtos
+      const result = await pool.query('SELECT * FROM products ORDER BY id');
 
-  try {
-    // Obtenha os produtos da página atual
-    const result = await pool.query(
-      'SELECT * FROM products ORDER BY id OFFSET $1 LIMIT $2',
-      [offset, pageSize]
-    );
-
-    const products = result.rows;
-
-    // Inclua informações de paginação na resposta
-    res.status(200).json({
-      products,
-      currentPage: parseInt(page, 10),
-    });
-  } catch (error) {
-    console.error('Erro ao obter produtos:', error);
-    res.status(500).json({ error: 'Erro interno do servidor', details: error.message });
+      // Enviar resposta com os produtos
+      res.status(200).json({ products: result.rows });
+    } catch (error) {
+      console.error('Erro ao obter produtos:', error);
+      res.status(500).json({ error: 'Erro interno do servidor', details: error.message });
+    }
+  } else {
+    // Método não permitido
+    res.setHeader('Allow', ['GET']);
+    res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
