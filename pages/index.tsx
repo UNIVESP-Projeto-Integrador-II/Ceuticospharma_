@@ -3,6 +3,7 @@ import { Box } from '@chakra-ui/react'; // Importe os componentes necessários d
 import HeroTeste from '../components/HomePage/HeroTeste'
 import Footer from  '../components/HomePage/Footer'
 import Product from '../components/HomePage/ProductAddToCart'
+
 import NavBar from '../components/HomePage/NavBar'
 import Vlibras from '@djpfs/react-vlibras'
 

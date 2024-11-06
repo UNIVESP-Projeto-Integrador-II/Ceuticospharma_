@@ -1,4 +1,16 @@
-# Projeto Integrador II
+# Projeto Integrador II - UNIVESP
+
+# Descrição
+
+O Projeto Integrador II apresenta um site desenvolvido para uma farmácia com o objetivo de divulgar preços de medicamentos, registrar produtos, gerenciar usuários e dados, utilizando JavaScript para as funcionalidades interativas e PostgreSQL como banco de dados. O sistema permite que administradores realizem o cadastro de medicamentos, incluindo detalhes como nome, descrição e preço, além de oferecer uma plataforma onde os usuários podem consultar esses preços. Também é possível cadastrar e gerenciar informações de clientes e diferentes tipos de usuários, como administradores e consumidores. A interface do site é projetada para ser intuitiva e responsiva, oferecendo uma experiência prática tanto para os clientes quanto para os administradores da farmácia.
+
+# Colaboradores
+* José Aparecido Gomes da Silva, RA: 2215539;
+* Matheus Marcelo Pereira Menezes, RA: 2106424;
+
+# Orientadora do Projeto
+* Suelen Santos Alves 
+
 
 # Requisitos do PI
 * Framework web;
