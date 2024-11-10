@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  Box,
-  VStack,
-  FormControl,
-  FormLabel,
-  Input,
-  Flex,
-} from "@chakra-ui/react";
+import {  Button,  Box,  VStack,  FormControl,  FormLabel,  Input,  Flex,} from "@chakra-ui/react";
 import NavBar from '../../components/HomePage/NavBar';
 import axios from 'axios';
 
