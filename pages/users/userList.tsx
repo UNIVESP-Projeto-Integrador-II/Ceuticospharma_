@@ -40,8 +40,9 @@ export default function UserList() {
           <Flex mb="8" justify="space-between" align="center">
             <Heading size="lg" fontWeight="normal">Usuários</Heading>
             <Link href="/users/create" passHref>
-              <Button 
-                as="a" 
+            <Button 
+                as={Link} 
+                href="/users/register" 
                 size="sm" 
                 fontSize="sm"
                 colorScheme="green"
